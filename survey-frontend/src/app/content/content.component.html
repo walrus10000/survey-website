@@ -1,0 +1,28 @@
+<nz-content>
+  <nz-table #basicTable nzTitle="My Surveys">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.name }}</td>
+        <td>
+          <a>Action 一 {{ data.name }}</a>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <a
+    routerLink="/create"
+    nz-button
+    nzType="primary"
+    nzSize="large"
+    nzShape="circle"
+    class="create-btn"
+  >
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+  </a>
+</nz-content>

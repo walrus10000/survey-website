@@ -13,11 +13,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
+import { FooterComponent } from './footer/footer.component';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzTableModule } from 'ng-zorro-antd/table';
+
+import { PlusOutline } from '@ant-design/icons-angular/icons';
+const icons: IconDefinition[] = [PlusOutline];
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    ContentComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +43,11 @@ registerLocaleData(en);
     NzFormModule,
     NzInputModule,
     NzButtonModule,
+    NzLayoutModule,
+    NzBreadCrumbModule,
+    NzTableModule,
+    NzIconModule,
+    NzIconModule.forRoot(icons),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
