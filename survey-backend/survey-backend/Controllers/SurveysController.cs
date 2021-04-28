@@ -76,11 +76,11 @@ namespace survey_backend.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Survey>> PostSurvey(Survey survey)
-        {
+        { 
             _context.Surveys.Add(survey);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetSurvey), new { id = survey.SurveyId }, survey);
+            return CreatedAtAction(nameof(GetSurvey), new { id = survey.SurveyId } , survey);
         }
 
         // DELETE: api/Surveys/5
@@ -102,6 +102,11 @@ namespace survey_backend.Controllers
         private bool SurveyExists(long id)
         {
             return _context.Surveys.Any(e => e.SurveyId == id);
+        }
+
+        private SurveyDTO ItemToDTO(Survey survey)
+        {
+            return new SurveyDTO { Name = survey.Name, Description = survey.Description };
         }
     }
 }

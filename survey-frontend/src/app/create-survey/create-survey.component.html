@@ -1,0 +1,30 @@
+<form nz-form nzLayout="vertical" [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <h1>Create a survey</h1>
+    <nz-form-item>
+        <nz-form-label nzFor="name" nzRequired>Name</nz-form-label>
+        <nz-form-control nzHasFeedback [nzErrorTip]="userErrorTpl">
+            <nz-input-group [nzAddOnBefore]="nameAddOnBefore">
+                <input nz-input name="name" type="text" id="name" formControlName="name" />
+            </nz-input-group>
+            <ng-template #nameAddOnBefore><i nz-icon nzType="solution" nzTheme="outline"></i></ng-template>
+            <ng-template #userErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a name!
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="description">Description</nz-form-label>
+        <nz-form-control>
+            <nz-input-group [nzAddOnBefore]="descriptionAddOnBefore">
+                <textarea nz-input name="description" rows="2" id="description" formControlName="description"></textarea>
+            </nz-input-group>
+            <ng-template #descriptionAddOnBefore><i nz-icon nzType="profile" nzTheme="outline"></i></ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <div class="btn-row">
+        <button nz-button nzType="primary" [disabled]="!surveyForm.valid" type="submit"><i nz-icon nzType="save" nzTheme="fill"></i>Create</button>
+        <a routerLink="/home"><i nz-icon nzType="caret-left" nzTheme="fill"></i> Go back</a>
+    </div>
+</form>

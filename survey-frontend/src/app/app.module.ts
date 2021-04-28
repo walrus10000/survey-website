@@ -17,13 +17,27 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
-import { FooterComponent } from './footer/footer.component';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { PlusOutline } from '@ant-design/icons-angular/icons';
-const icons: IconDefinition[] = [PlusOutline];
+import {
+  PlusOutline,
+  CaretLeftFill,
+  SaveFill,
+  SolutionOutline,
+  ProfileOutline,
+} from '@ant-design/icons-angular/icons';
+import { CreateSurveyComponent } from './create-survey/create-survey.component';
+import { HomeComponent } from './home/home.component';
+const icons: IconDefinition[] = [
+  PlusOutline,
+  CaretLeftFill,
+  SaveFill,
+  SolutionOutline,
+  ProfileOutline,
+];
 
 registerLocaleData(en);
 
@@ -32,7 +46,8 @@ registerLocaleData(en);
     AppComponent,
     HeaderComponent,
     ContentComponent,
-    FooterComponent,
+    CreateSurveyComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +55,7 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NzFormModule,
     NzInputModule,
     NzButtonModule,
